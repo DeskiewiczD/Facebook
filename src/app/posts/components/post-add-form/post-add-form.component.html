@@ -10,6 +10,11 @@
           <button type="submit" class="btn btn-primary">Dodaj</button>
         </div>
       </div>
+      <div class="row text-danger">
+        <ul>
+          <li *ngIf="body.dirty && body.invalid">Aby dodać post wpisz tekst.</li>
+        </ul>
+      </div>
     </form>
   </div>
 </div>
