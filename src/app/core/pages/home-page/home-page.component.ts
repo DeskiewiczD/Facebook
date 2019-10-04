@@ -22,6 +22,10 @@ export class HomePageComponent implements OnInit {
     // console.log('Home page');
   }
 
+  isDisplayLoader() {
+    return !(this.posts || this.error);
+  }
+
   private async setupPosts() {
     try {
       this.posts = await this.postsService.getPosts();
