@@ -19,6 +19,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.setupPosts();
+    console.log('Home page');
   }
 
   private async setupPosts() {

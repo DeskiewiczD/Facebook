@@ -18,4 +18,8 @@ export class CommentListComponent implements OnInit {
   ngOnInit() {
   }
 
+  addComment(comment) {
+    console.log('add comment', comment);
+    this.comments.push(comment);
+  }
 }
