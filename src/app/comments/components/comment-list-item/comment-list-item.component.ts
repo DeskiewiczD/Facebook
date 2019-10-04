@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {IComment} from '../../../shared/interfaces/comment.interface';
 
@@ -12,6 +12,8 @@ export class CommentListItemComponent implements OnInit {
   @Input() comment: IComment = null;
   constructor() { }
 
+  @Output() removeComment = new EventEmitter();
+
   ngOnInit() {
   }
 
@@ -21,5 +23,9 @@ export class CommentListItemComponent implements OnInit {
     } else {
       return 'http://placeskull.com/50/50/32a852';
     }
+  }
+
+  removeComm() {
+    this.removeComment.emit(this.comment);
   }
 }
