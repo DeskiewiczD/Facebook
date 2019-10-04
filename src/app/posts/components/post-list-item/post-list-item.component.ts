@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+export class PostListItemComponent implements OnInit, OnChanges {
 
   @Input() post = null;
 
@@ -13,6 +13,12 @@ export class PostListItemComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    if (change.post && change.post.firstChange) {
+      this.post.comments = [];
+    }
   }
 
   getPostUrl(): string {

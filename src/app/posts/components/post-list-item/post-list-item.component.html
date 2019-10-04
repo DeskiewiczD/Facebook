@@ -13,13 +13,15 @@
         </a>
       </div>
     </div>
-    <img [src]="post.images[0]" class="card-img-top">
+    <ng-container *ngIf="post.images">
+      <img [src]="post.images[0]" class="card-img-top">
+    </ng-container>
     <div class="card-body">
       <h5 class="card-title">{{post.id}}</h5>
       <p class="card-text">{{post.body}}</p>
     </div>
     <div class="card-footer">
-      <app-comment-list></app-comment-list>
+      <app-comment-list [comments]="post.comments"></app-comment-list>
     </div>
   </div>
 </ng-container>
